@@ -97,7 +97,7 @@ function BillAndTipCalculator(){
             let _tipAmount = parseFloat(tipInput.value);
             let _totalAmount = _billAmount + ((_tipAmount/100)*_billAmount);
 
-            billAndTipOutput.textContent = "With a total of $" + billInput.value + " and a " + tipInput.value + "% tip, the total is: $" + _totalAmount.toFixed(2);
+            billAndTipOutput.textContent = "With a total of $" + billInput.value.toFixed(2) + " and a " + tipInput.value + "% tip, the total is: $" + _totalAmount.toFixed(2);
         } else {
             billAndTipOutput.textContent = "Please enter only number values for both the bill and tip percentage.";
         }
