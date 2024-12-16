@@ -2,6 +2,8 @@
 
 This is the README for assignment 2. Creating a website.
 
+https://jfaria-1205.github.io/IS601_Assignment2/
+
 **Assignment specifications:
 
 ***1- Create a website where you ask the user to enter a string and display the string in reverse. You need a index.html, style.css ( if you put any css ), and index.js where you will have your reverse function. Please notice, you are not allow to use jQuery for this assignment. 
