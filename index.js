@@ -5,11 +5,9 @@
 let reverseInput = document.createElement("input");
 let reverseOutput = document.createElement("p");
 let reverseButton = document.createElement("button");
+reverseOutput.classList.add("output");
 
 // Button setup
-reverseButton.style.width = "80px";
-reverseButton.style.height = "20px";
-reverseButton.style.fontSize = "13px";
 reverseButton.textContent = "REVERSE";
 
 // Placeholder text for input box
@@ -38,26 +36,23 @@ let palindromeOutput = document.createElement("p");
 let palindromeButton = document.createElement("button");
 
 // Button setup
-palindromeButton.style.width = "90px";
-palindromeButton.style.height = "20px";
-palindromeButton.style.fontSize = "13px";
 palindromeButton.textContent = "Palindrome?";
 
 // Placeholder text for input box
 palindromeInput.placeholder = "Type some numbers...";
 
 // Palindrome function
-function PalindromeOrNot(){
-    //if statement checks if the input is numbers or not
-    if (/^\d+$/.test(palindromeInput.value)){
-        //if statement checks if palindrome or not
-        if (palindromeInput.value === palindromeInput.value.split("").reverse().join("")) {
-            palindromeOutput.textContent = "This is a palindrome!";
-        } else {
-            palindromeOutput.textContent = "This is NOT a palindrome.";
-        }
-    } else {
-        palindromeOutput.textContent = "You must only write numbers.";
+function PalindromeOrNot() {
+    //if statement checks if palindrome or not
+    let _palindromeInputFixed = palindromeInput.value.replaceAll(" ", "")
+    if (_palindromeInputFixed === _palindromeInputFixed.split("").reverse().join("")) {    
+        palindromeOutput.classList.add("output");
+        palindromeOutput.classList.remove("output-error"); 
+        palindromeOutput.textContent = palindromeInput.value + "\n is a palindrome!";            
+    } else {     
+        palindromeOutput.classList.add("output-error");
+        palindromeOutput.classList.remove("output");      
+        palindromeOutput.textContent = "This is NOT a palindrome.";
     }
 }
 
@@ -80,9 +75,6 @@ let billAndTipOutput = document.createElement("p");
 let billAndTipButton = document.createElement("button");
 
 // Button setup
-billAndTipButton.style.width = "90px";
-billAndTipButton.style.height = "40px";
-billAndTipButton.style.fontSize = "13px";
 billAndTipButton.textContent = "Calculate total";
 
 // Placeholder text for input boxes
@@ -92,17 +84,28 @@ tipInput.placeholder = "Type the tip percentage...";
 // Palindrome function
 function BillAndTipCalculator(){
     if (billInput.value != "" && tipInput.value != ""){
-        if (/^\d+$/.test(billInput.value) && /^\d+$/.test(tipInput.value)){
-            let _billAmount = parseFloat(billInput.value);
-            let _tipAmount = parseFloat(tipInput.value);
-            let _totalAmount = _billAmount + ((_tipAmount/100)*_billAmount);
+        
+        // Sanitize input values to only include the numbers
+        let _billInputNumbersOnly = billInput.value.replace(/[^0-9.]/g, "");
+        let _tipInputNumbersOnly = tipInput.value.replace(/[^0-9.]/g, "");
 
-            billAndTipOutput.textContent = "With a total of $" + billInput.value.toFixed(2) + " and a " + tipInput.value + "% tip, the total is: $" + _totalAmount.toFixed(2);
-        } else {
-            billAndTipOutput.textContent = "Please enter only number values for both the bill and tip percentage.";
-        }
+        // Parse the inputs to floats
+        let _billAmount = parseFloat(_billInputNumbersOnly);
+        let _tipAmount = parseFloat(_tipInputNumbersOnly);
+
+        // Total calculations        
+        let _totalAmount = _billAmount + ((_tipAmount/100)*_billAmount);
+
+        // CSS styling
+        billAndTipOutput.classList.add("output");
+        billAndTipOutput.classList.remove("output-error");
+
+        // Output
+        billAndTipOutput.textContent = "With a total of $" + _billAmount + " and a " + _tipAmount + "% tip, the total is: $" + _totalAmount;
     } else {
-        billAndTipOutput.textContent = "Please enter a value for both the bill amount and tip percentage.";
+        billAndTipOutput.classList.add("output-error");
+        billAndTipOutput.classList.remove("output");
+        billAndTipOutput.textContent = "Please enter a value for both the bill amount and tip percentage."        
     }
 }
 
@@ -114,3 +117,5 @@ document.getElementById("id_billAndTip").appendChild(billInput);
 document.getElementById("id_billAndTip").appendChild(tipInput);
 document.getElementById("id_billAndTip").appendChild(billAndTipButton);
 document.getElementById("id_billAndTip").appendChild(billAndTipOutput);
+
+

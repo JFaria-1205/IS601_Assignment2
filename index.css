@@ -10,6 +10,23 @@ div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 20em;
     /*box-shadow: 10px 10px 10px 1px rgb(2, 2, 2, 0.1);*/
 }
+
+h2 {
+    padding: 0;
+    padding-top: 10rem;
+    margin: 0;
+}
+
+/* Error Case Default */
+.output-error {
+    color: red;
+}
+
+/* Output Default */
+.output {
+    color: green;
+}
+
