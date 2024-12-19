@@ -1,6 +1,4 @@
-# IS601_Assignment2
-
-This is the README for assignment 2. Creating a website.
+# IS601_Assignment2 - Simple Website
 
 **Website Link:**
 https://jfaria-1205.github.io/IS601_Assignment2/

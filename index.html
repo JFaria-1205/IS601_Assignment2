@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Jason Faria's Assignment 2</title>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
@@ -10,23 +11,27 @@
         <h1>Jason Faria's Assignment 2</h1>
     </div>
 
-    <div>
+    <div class="section">
         <h2 class="string-header">String Reverser</h2>
         <p class="string-paragraph">Write something and it will be reversed!</p>
         <div id="id_stringReverse"></div>
     </div>
 
-    <div>
+    <div class="section">
         <h2 class="palindrome-header">Palindrome or Not</h2>
         <p class="palindrome-paragraph">Write some numbers and I will tell you if it is a palindrome or not!</p>
         <div id="id_palindrome"></div>
     </div>
 
-    <div>
+    <div class="section">
         <h2 class="bill-header">Bill and Tip</h2>
-        <p class="bill-paragraph">Write the bill total and percent you want to tip and I will give you the grand total!</p>
-        <div id="id_billAndTip"></div>
+        <p class="bill-paragraph">Write the bill total and percent you want to tip and I will calculate the grand total for you!</p>
+        <div id="id_billAndTip">
+            <input type="number" id="id_billInput">
+            <input type="number" id="id_tipInput">
+        </div>
     </div>
 
     <script src="index.js"></script>
 </body>
+</html>
