@@ -129,11 +129,15 @@ function BillAndTipCalculator(){
         billAndTipOutput.classList.remove("output-error");
 
         // Output
-        billAndTipOutput.innerHTML = "Total: $" + _totalAmount + "<br>Bill: $" + _billAmount + "<br>Tip Percentage: " + _tipPercent + "%<br>Tip Amount: $" + _tipAmount;
+        billAndTipOutput.innerHTML = "Grand Total: $" + _totalAmount + "<br><br>Bill: $" + _billAmount + "<br>Tip Percentage: " + _tipPercent + "%<br>Tip Amount: $" + _tipAmount;
+    } else if (billInput.value == "" && tipInput.value == "") {
+        billAndTipOutput.classList.add("output-error");
+        billAndTipOutput.classList.remove("output");
+        billAndTipOutput.textContent = "Type something first!";
     } else {
         billAndTipOutput.classList.add("output-error");
         billAndTipOutput.classList.remove("output");
-        billAndTipOutput.textContent = "Please enter a number for both the bill amount and tip percentage."     
+        billAndTipOutput.textContent = "Please enter a number for both the bill amount and tip percentage.";
     }
 }
 
